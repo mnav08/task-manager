@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple task board for organizing today's priorities."
+    />
+    <title>Today Task Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Today task board home">
+          <span class="brand-mark" aria-hidden="true">+</span>
+          <span>Today</span>
+        </a>
+        <p class="date-label">Focused work, one task at a time</p>
+      </header>
+
+      <main class="main-content">
+        <section class="intro-section" aria-labelledby="page-title">
+          <p class="eyebrow">Your daily workspace</p>
+          <h1 id="page-title">Make room for what matters.</h1>
+          <p class="intro-copy">
+            Capture your next step, then keep your attention on the work in front of you.
+          </p>
+        </section>
+
+        <section class="task-board" aria-labelledby="task-board-title">
+          <div class="board-heading">
+            <div>
+              <p class="section-label">Task board</p>
+              <h2 id="task-board-title">Today's priorities</h2>
+            </div>
+            <p class="task-count" id="task-count" aria-live="polite">0 Tasks</p>
+          </div>
+
+          <form class="task-form" id="task-form">
+            <div class="form-field">
+              <label for="task-input">Add a task</label>
+              <div class="input-row">
+                <input
+                  id="task-input"
+                  name="task"
+                  type="text"
+                  placeholder="What needs your attention?"
+                  autocomplete="off"
+                  maxlength="100"
+                />
+                <button class="primary-button" type="submit">Add task</button>
+              </div>
+              <p class="form-message" id="form-message" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <div class="filter-bar" aria-label="Task filters">
+            <div class="filter-group" role="group" aria-label="Show tasks">
+              <button
+                class="filter-button is-active"
+                type="button"
+                data-filter="all"
+                aria-pressed="true"
+              >
+                All
+              </button>
+              <button
+                class="filter-button"
+                type="button"
+                data-filter="active"
+                aria-pressed="false"
+              >
+                Active
+              </button>
+              <button
+                class="filter-button"
+                type="button"
+                data-filter="completed"
+                aria-pressed="false"
+              >
+                Completed
+              </button>
+            </div>
+            <button class="clear-button" id="clear-completed" type="button">
+              Clear completed
+            </button>
+          </div>
+
+          <div class="task-list-container">
+            <ul
+              class="task-list"
+              id="task-list"
+              aria-live="polite"
+              aria-label="Your tasks"
+            ></ul>
+            <div class="empty-state" id="empty-state">
+              <span class="empty-icon" aria-hidden="true">✦</span>
+              <h3 id="empty-state-title">Your list is clear</h3>
+              <p id="empty-state-copy">Add a task above to begin your day.</p>
+            </div>
+          </div>
+
+          <p
+            class="status-message"
+            id="status-message"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>Small steps count.</p>
+      </footer>
+    </div>
+  </body>
+</html>
