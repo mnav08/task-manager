@@ -7,7 +7,7 @@ const statusMessage = document.getElementById("status-message");
 const filterBtns = document.querySelectorAll(".filter-button");
 const clearCompletedBtn = document.getElementById("clear-completed");
 const formMessage = document.getElementById("form-message");
-const tasks = [];
+let tasks = [];
 
 /**Filtering***/
 // Global filter state
@@ -59,6 +59,13 @@ function renderTasks() {
     return true; // "all"
   });
 
+  //empty state container
+  if (filteredTasks.length > 0) {
+    emptyState.hidden = true;
+  } else {
+    emptyState.hidden = false;
+  }
+
   // Loop over filtered collection
   filteredTasks.forEach((task) => {
     let listItem = document.createElement("li");
@@ -108,4 +115,10 @@ filterBtns.forEach((button) => {
     button.ariaPressed = true;
     renderTasks();
   });
+});
+
+//clear completed tasks listener
+clearCompletedBtn.addEventListener("click", function () {
+  tasks = tasks.filter((task) => task.completed === false);
+  renderTasks();
 });
