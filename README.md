@@ -21,3 +21,5 @@ A simple daily task board built with plain HTML, CSS, and JavaScript.
 - `script.js` - Task board behavior
 
 ## Live Demo
+
+[Task Board Demo](https://mnav08.github.io/task-manager/)
